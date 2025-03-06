@@ -14,7 +14,7 @@ import {
 import { FiSearch } from "react-icons/fi";
 import { MdPerson, MdHourglassEmpty, MdPersonAdd } from "react-icons/md";
 
-const ManageAccount = () => {
+const ManageAccount = ({ setActivePage }) => {
   const [employees] = useState([
     {
       id: "EMP003",
@@ -62,7 +62,7 @@ const ManageAccount = () => {
   ];
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 min-h-screen">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold">Account Management</h2>
@@ -77,11 +77,11 @@ const ManageAccount = () => {
           </div>
           <FaBell className="text-2xl text-gray-600 cursor-pointer" />
           <div className="flex items-center space-x-2">
-          <img
-                src="./src/components/profile.png"
-                alt="User"
-                className="w-8 h-8 rounded-full"
-              />
+            <img
+              src="./src/components/profile.png"
+              alt="User"
+              className="w-8 h-8 rounded-full"
+            />
             <div>
               <p className="font-medium">Rashmika</p>
               <p className="text-sm text-gray-500">HR Admin</p>
@@ -141,11 +141,17 @@ const ManageAccount = () => {
           />
         </div>
         <div className="mt-4 flex gap-3">
-          <button className="w-50 bg-blue-500 text-white p-2 rounded-md flex items-center justify-center hover:bg-blue-600 transition">
+          <button
+            onClick={() => setActivePage("manageAccountActivation")}
+            className="w-50 bg-blue-500 text-white p-2 rounded-md flex items-center justify-center hover:bg-blue-600 transition"
+          >
             <FaUserCheck className="mr-2" /> Batch Activated
           </button>
-          <button className="w-50 bg-red-500 text-white p-2 rounded-md flex items-center justify-center hover:bg-red-600 transition">
-            <FaUserTimes className="mr-2" /> Batch Deactivated
+          <button
+            onClick={() => setActivePage("manageAccountDeactivation")}
+            className="w-50 bg-red-500 text-white p-2 rounded-md flex items-center justify-center hover:bg-red-600 transition"
+          >
+            <FaUserCheck className="mr-2" /> Batch Deactivated
           </button>
         </div>
 

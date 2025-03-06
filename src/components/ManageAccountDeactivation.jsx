@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaSearch, FaBell, FaCog } from "react-icons/fa";
+import { FiSearch } from "react-icons/fi";
 import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 
 const ManageAccountDeactivation = () => {
@@ -47,20 +48,28 @@ const ManageAccountDeactivation = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 min-h-screen">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-semibold">Employee Deactivation Management</h2>
-        <div className="flex items-center gap-4">
-          <FaBell className="text-gray-600 text-xl cursor-pointer" />
-          <div className="flex items-center gap-2">
+        <h2 className="text-2xl font-semibold">Account Management</h2>
+        <div className="flex items-center space-x-4">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              className="pl-10 pr-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+            />
+            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+          </div>
+          <FaBell className="text-2xl text-gray-600 cursor-pointer" />
+          <div className="flex items-center space-x-2">
           <img
                 src="./src/components/profile.png"
                 alt="User"
                 className="w-8 h-8 rounded-full"
               />
             <div>
-              <p className="font-semibold">Rashmika</p>
+              <p className="font-medium">Rashmika</p>
               <p className="text-sm text-gray-500">HR Admin</p>
             </div>
           </div>

@@ -3,8 +3,8 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "rec
 import { FaUsers, FaProjectDiagram } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { MdOutlineWork } from "react-icons/md";
-import { Search } from "lucide-react";
-import { useState } from "react";
+import { FaBell,} from "react-icons/fa";
+import { FiSearch } from "react-icons/fi";
 
 const data = [
   { name: "Mon", Sales: 20, Marketing: 30, Design: 10 },
@@ -19,18 +19,28 @@ const data = [
 export default function Dashboard() {
   return (
     <main className="flex-1 p-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <div className="flex gap-4 items-center">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-semibold">Dashboard</h2>
+        <div className="flex items-center space-x-4">
           <div className="relative">
-            <input type="text" placeholder="Search" className="border p-2 pl-8 rounded-md w-64" />
-            <Search className="absolute left-2 top-2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="pl-10 pr-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+            />
+            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
+          <FaBell className="text-2xl text-gray-600 cursor-pointer" />
+          <div className="flex items-center space-x-2">
+          <img
+                src="./src/components/profile.png"
+                alt="User"
+                className="w-8 h-8 rounded-full"
+              />
             <div>
-              <span className="block font-semibold">Rashmika</span>
-              <span className="text-gray-500 text-sm">HR Admin</span>
+              <p className="font-medium">Rashmika</p>
+              <p className="text-sm text-gray-500">HR Admin</p>
             </div>
           </div>
         </div>
