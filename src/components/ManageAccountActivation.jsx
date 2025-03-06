@@ -73,7 +73,6 @@ const ManageAccountActivation = () => {
         </div>
       </div>
 
-      {/* Summary Cards with Icons */}
       <div className="grid grid-cols-4 gap-4 mb-6">
         {[
           {
@@ -114,14 +113,12 @@ const ManageAccountActivation = () => {
         ))}
       </div>
 
-      {/* Employee Account Activation & Table Combined */}
       <div className="bg-white p-6 rounded-md mb-6 shadow-md">
         <h3 className="font-semibold mb-2">Employee Account Activation</h3>
         <p className="text-sm text-gray-500 mb-4">
           Manage pending account activations for new employees
         </p>
 
-        {/* Filters */}
         <div className="flex gap-4 mb-4">
           <input
             type="text"
@@ -140,7 +137,6 @@ const ManageAccountActivation = () => {
           />
         </div>
 
-        {/* Employee Table */}
         <table className="w-full border-collapse border border-gray-300 bg-white">
           <thead>
             <tr className="bg-gray-200">
@@ -198,7 +194,6 @@ const ManageAccountActivation = () => {
         </table>
       </div>
 
-      {/* Recent Activity Log */}
       <div className="bg-white p-6 rounded-lg shadow-md mt-6">
         <h3 className="text-lg font-semibold mb-4">Recent Activity Log</h3>
         {recentActivities.map((activity, index) => (

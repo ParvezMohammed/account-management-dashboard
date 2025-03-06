@@ -90,7 +90,6 @@ const ManageAccount = () => {
         </div>
       </div>
 
-      {/* Account Summary Cards */}
       <div className="grid grid-cols-4 gap-4 mb-6">
         <div className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
           <MdPerson className="text-blue-500 text-3xl" />
@@ -122,7 +121,6 @@ const ManageAccount = () => {
         </div>
       </div>
 
-      {/* Employee Status Control */}
       <div className="bg-white p-6 rounded-md mb-6 shadow-md">
         <h3 className="font-semibold mb-4">Employee Status Control</h3>
         <div className="flex gap-4">
@@ -151,7 +149,6 @@ const ManageAccount = () => {
           </button>
         </div>
 
-        {/* Employee Table */}
         <div className="mt-6">
           <table className="w-full border-collapse">
             <thead>
@@ -201,9 +198,7 @@ const ManageAccount = () => {
         </div>
       </div>
 
-      {/* Status Update Form and Recent Activity Log will be placed here */}
       <div className="grid grid-cols-2 gap-6">
-        {/* Status Update Form */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold mb-4">Status Update Form</h3>
           <label className="block text-sm font-medium">
@@ -238,7 +233,6 @@ const ManageAccount = () => {
           </button>
         </div>
 
-        {/* Recent Activity Log */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold mb-4">Recent Activity Log</h3>
           {recentActivities.map((activity, index) => (

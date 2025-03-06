@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { FaSearch, FaBell, FaCog } from "react-icons/fa";
+import { FaSearch, FaCog } from "react-icons/fa";
 import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 
 const ManageAccountDeactivation = () => {
+  // Employee Deactivation Data
   const [employees, setEmployees] = useState([
     {
       id: "EMP001",
@@ -28,8 +29,7 @@ const ManageAccountDeactivation = () => {
     {
       author: "Rashmika (HR)",
       time: "2 hours ago",
-      comment:
-        "Employee has returned all company assets. Pending final clearance from IT department.",
+      comment: "Employee has returned all company assets. Pending final clearance from IT department.",
     },
     {
       author: "John Anderson",
@@ -40,6 +40,7 @@ const ManageAccountDeactivation = () => {
 
   const [newNote, setNewNote] = useState("");
 
+  // Handle Adding Notes
   const handleAddNote = () => {
     if (newNote.trim() === "") return;
     setNotes([{ author: "You", time: "Just now", comment: newNote }, ...notes]);
@@ -51,58 +52,36 @@ const ManageAccountDeactivation = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold">Employee Deactivation Management</h2>
-        <div className="flex items-center gap-4">
-          <FaBell className="text-gray-600 text-xl cursor-pointer" />
-          <div className="flex items-center gap-2">
-          <img
-                src="./src/components/profile.png"
-                alt="User"
-                className="w-8 h-8 rounded-full"
-              />
-            <div>
-              <p className="font-semibold">Rashmika</p>
-              <p className="text-sm text-gray-500">HR Admin</p>
-            </div>
-          </div>
+        <div className="relative">
+          <FaSearch className="absolute top-3 left-3 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search by name, ID or email"
+            className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded-lg shadow mb-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="relative">
-            <FaSearch className="absolute top-3 left-3 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search by name, ID or email"
-              className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <select className="border rounded-lg p-2 w-full">
-            <option>All Department</option>
-          </select>
-          <select className="border rounded-lg p-2 w-full">
-            <option>All Status</option>
-          </select>
-          <input type="date" className="border rounded-lg p-2 w-full" />
-        </div>
+      {/* Filters & Buttons */}
+      <div className="flex gap-4 mb-4">
+        <select className="border rounded-lg p-2">
+          <option>All Department</option>
+        </select>
+        <select className="border rounded-lg p-2">
+          <option>All Status</option>
+        </select>
+        <input type="date" className="border rounded-lg p-2" />
+        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+          <FaCog /> Process Deactivation
+        </button>
+        <button className="bg-green-600 text-white px-4 py-2 rounded-lg">
+          Mark as Completed
+        </button>
       </div>
 
-      <div className="bg-white p-4 rounded-lg shadow mb-4">
-        <div className="flex justify-between items-center border-b pb-2 mb-3">
-          <h3 className="text-lg font-semibold">Deactivation Queue</h3>
-          <div className="flex gap-3">
-            <select className="border rounded-lg p-2">
-              <option>Bulk Action</option>
-            </select>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
-              <FaCog /> Process Deactivation
-            </button>
-            <button className="bg-green-600 text-white px-4 py-2 rounded-lg">
-              Mark as Completed
-            </button>
-          </div>
-        </div>
-
+      {/* Deactivation Queue */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <h3 className="text-lg font-semibold mb-2">Deactivation Queue</h3>
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-gray-200">
@@ -127,18 +106,30 @@ const ManageAccountDeactivation = () => {
                 <td className="p-2 text-center">{emp.department}</td>
                 <td className="p-2 text-center">{emp.lastWorkingDate}</td>
                 <td className="p-2 text-center">
-                  <span className={`px-2 py-1 rounded-lg text-white text-sm ${emp.status === "Pending" ? "bg-yellow-500" : "bg-green-500"}`}>
+                  <span
+                    className={`px-2 py-1 rounded-lg text-white text-sm ${
+                      emp.status === "Pending" ? "bg-yellow-500" : "bg-green-500"
+                    }`}
+                  >
                     {emp.status}
                   </span>
                 </td>
                 <td className="p-2 text-center">
-                  <span className={`px-2 py-1 rounded-lg text-white text-sm ${emp.priority === "High" ? "bg-red-500" : "bg-orange-500"}`}>
+                  <span
+                    className={`px-2 py-1 rounded-lg text-white text-sm ${
+                      emp.priority === "High" ? "bg-red-500" : "bg-orange-500"
+                    }`}
+                  >
                     {emp.priority}
                   </span>
                 </td>
                 <td className="p-2 text-center">
-                  <button className="text-blue-500 mr-2"><HiOutlinePencil size={20} /></button>
-                  <button className="text-red-500"><HiOutlineTrash size={20} /></button>
+                  <button className="text-blue-500 mr-2">
+                    <HiOutlinePencil size={20} />
+                  </button>
+                  <button className="text-red-500">
+                    <HiOutlineTrash size={20} />
+                  </button>
                 </td>
               </tr>
             ))}
@@ -146,20 +137,31 @@ const ManageAccountDeactivation = () => {
         </table>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Checklist & Notes Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        {/* Checklist */}
         <div className="bg-white p-4 rounded-lg shadow">
           <h3 className="text-lg font-semibold mb-2">Deactivation Checklist</h3>
-          {["Email Account", "System Credentials", "Building Access", "VPN Access", "Software Licenses", "Company Assets"].map((item, index) => (
-            <div key={index} className="flex items-center gap-2">
-              <input type="checkbox" className="w-4 h-4" />
-              <label>{item}</label>
-            </div>
-          ))}
+          {["Email Account", "System Credentials", "Building Access", "VPN Access", "Software Licenses", "Company Assets"].map(
+            (item, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <input type="checkbox" className="w-4 h-4" />
+                <label>{item}</label>
+              </div>
+            )
+          )}
         </div>
 
+        {/* Notes & Comments */}
         <div className="bg-white p-4 rounded-lg shadow">
           <h3 className="text-lg font-semibold mb-2">Notes & Comments</h3>
-          <textarea className="w-full border rounded-lg p-2" rows={3} placeholder="Add a note here" value={newNote} onChange={(e) => setNewNote(e.target.value)} />
+          <textarea
+            className="w-full border rounded-lg p-2"
+            rows={3}
+            placeholder="Add a note here"
+            value={newNote}
+            onChange={(e) => setNewNote(e.target.value)}
+          />
           <button onClick={handleAddNote} className="bg-blue-600 text-white px-4 py-2 rounded-lg mt-2">
             Add Note
           </button>
