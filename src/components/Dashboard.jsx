@@ -16,7 +16,7 @@ const data = [
   { name: "Sun", Sales: 100, Marketing: 80, Design: 55 },
 ];
 
-export default function Dashboard() {
+export default function Dashboard({ setActivePage }) {
   return (
     <main className="flex-1 p-6">
       {/* Header */}
@@ -31,7 +31,11 @@ export default function Dashboard() {
             />
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
           </div>
-          <FaBell className="text-2xl text-gray-600 cursor-pointer" />
+          {/* <FaBell className="text-2xl text-gray-600 cursor-pointer" /> */}
+          <FaBell
+            className="text-2xl text-gray-600 cursor-pointer"
+            onClick={() => setActivePage("notification")}
+          />
           <div className="flex items-center space-x-2">
           <img
                 src="./src/components/profile.png"

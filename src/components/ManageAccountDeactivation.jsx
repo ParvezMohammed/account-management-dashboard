@@ -3,7 +3,7 @@ import { FaSearch, FaBell, FaCog } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 
-const ManageAccountDeactivation = () => {
+const ManageAccountDeactivation = ({ setActivePage }) => {
   const [employees, setEmployees] = useState([
     {
       id: "EMP001",
@@ -61,7 +61,11 @@ const ManageAccountDeactivation = () => {
             />
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
           </div>
-          <FaBell className="text-2xl text-gray-600 cursor-pointer" />
+          {/* <FaBell className="text-2xl text-gray-600 cursor-pointer" /> */}
+          <FaBell
+            className="text-2xl text-gray-600 cursor-pointer"
+            onClick={() => setActivePage("notification")}
+          />
           <div className="flex items-center space-x-2">
           <img
                 src="./src/components/profile.png"
